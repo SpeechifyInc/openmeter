@@ -9,7 +9,7 @@ metadata:
 spec:
   kafka:
     version: 3.4.0
-    replicas: 1
+    replicas: {{ .Values.kafka.replicaCount }}
     listeners:
       - name: plain
         port: 9092
@@ -37,7 +37,7 @@ spec:
       podDisruptionBudget:
         maxUnavailable: 0
   zookeeper:
-    replicas: 1
+    replicas: {{ .Values.kafka.zookeeper.replicaCount }}
     storage:
       type: persistent-claim
       size: 10Gi

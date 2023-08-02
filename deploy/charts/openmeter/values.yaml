@@ -90,10 +90,14 @@ affinity: {}
 kafka:
   enabled: true
   name: "openmeter"
+  replicaCount: 1
+  zookeeper:
+    replicaCount: 1
 
 schemaregistry:
   enabled: true
   fullnameOverride: "openmeter-schema-registry"
+  replicaCount: 1
   imageTag: "7.4.0"
   kafka:
     bootstrapServers: "PLAINTEXT://openmeter-kafka-bootstrap:9092"
@@ -110,6 +114,7 @@ schemaregistry:
 ksql:
   enabled: true
   fullnameOverride: "openmeter-ksql"
+  replicaCount: 1
   imageTag: "7.4.0"
   ksql:
     headless: false
