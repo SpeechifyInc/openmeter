@@ -5,6 +5,7 @@ metadata:
   namespace: "{{ .Release.Namespace }}"
   labels:
     {{- include "openmeter.labels" . | nindent 4 }}
+    {{- toYaml .Values.service.labels | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
