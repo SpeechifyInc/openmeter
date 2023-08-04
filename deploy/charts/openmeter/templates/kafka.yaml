@@ -20,7 +20,7 @@ spec:
         type: internal
         tls: true
     config:
-      offsets.topic.replication.factor: {{ .Values.kafka.minimumInSyncReplicas }}
+      offsets.topic.replication.factor: {{ .Values.kafka.replicaCount }}
       transaction.state.log.replication.factor: {{ .Values.kafka.replicaCount }}
       transaction.state.log.min.isr: {{ .Values.kafka.minimumInSyncReplicas }}
       default.replication.factor: {{ .Values.kafka.replicaCount }}
