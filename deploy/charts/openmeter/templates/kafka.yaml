@@ -20,11 +20,11 @@ spec:
         type: internal
         tls: true
     config:
-      offsets.topic.replication.factor: {{ .Values.kafka.replicaCount }}
+      offsets.topic.replication.factor: {{ .Values.kafka.minimumInSyncReplicas }}
       transaction.state.log.replication.factor: {{ .Values.kafka.replicaCount }}
-      transaction.state.log.min.isr: {{ .Values.kafka.replicaCount }}
+      transaction.state.log.min.isr: {{ .Values.kafka.minimumInSyncReplicas }}
       default.replication.factor: {{ .Values.kafka.replicaCount }}
-      min.insync.replicas: {{ .Values.kafka.replicaCount }}
+      min.insync.replicas: {{ .Values.kafka.minimumInSyncReplicas }}
       inter.broker.protocol.version: "3.4"
     storage:
       type: jbod

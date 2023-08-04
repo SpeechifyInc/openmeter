@@ -92,6 +92,9 @@ kafka:
   enabled: true
   name: "openmeter"
   replicaCount: 1
+  # Controls the number of replicas that must acknowledge a write before considering it successful
+  # Recommended to use 2 in a 3 replica setup for a balance of data durability and availability
+  minimumInSyncReplicas: 1
   zookeeper:
     replicaCount: 1
 
