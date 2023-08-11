@@ -35,9 +35,9 @@ spec:
           deleteClaim: true
     template:
       podDisruptionBudget:
-        maxUnavailable: 0
+        maxUnavailable: {{ max 0 (sub .Values.kafka.replicaCount .Values.kafka.minimumInSyncReplicas) }}
   zookeeper:
-    replicas: {{ .Values.kafka.zookeeper.replicaCount }}
+    replicas: {{ .Values.kafka.replicaCount }}
     storage:
       type: persistent-claim
       size: 10Gi
